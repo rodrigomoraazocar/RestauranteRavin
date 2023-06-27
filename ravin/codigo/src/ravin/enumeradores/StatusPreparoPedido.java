@@ -4,6 +4,8 @@ public enum StatusPreparoPedido {
 	
 	PRONTO,
 	PREPARADO,
-	ENTREGUE
+	ENTREGUE,
+	SOLICITADO,
+	EM_ABERTO
 
 }

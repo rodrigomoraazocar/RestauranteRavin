@@ -10,9 +10,14 @@ import javax.swing.JOptionPane;
 import ravin.enumeradores.Cargo;
 import ravin.enumeradores.Escolaridade;
 import ravin.enumeradores.EstadoCivil;
+import ravin.enumeradores.StatusComanda;
+import ravin.enumeradores.StatusMesa;
+import ravin.enumeradores.StatusPreparoPedido;
 import ravin.enumeradores.TipoProduto;
 import ravin.modelos.Cliente;
+import ravin.modelos.Comanda;
 import ravin.modelos.Funcionario;
+import ravin.modelos.Mesa;
 import ravin.modelos.Pedido;
 import ravin.modelos.Pessoa;
 import ravin.modelos.Produto;
@@ -113,8 +118,29 @@ public class Main {
 		pedido.setDataHoraSolicitacao(new Timestamp(new Date().getTime()));
 		pedido.setObservacao(JOptionPane.showInputDialog("Observações:"));
 		pedido.setQuantidade(Integer.parseInt(JOptionPane.showInputDialog("Digite a quantidade de items que você quer para esse pedido")));
-		
+		pedido.setStatusPreparo(StatusPreparoPedido.SOLICITADO);
 		return pedido;
 	}
+	
+	public static Mesa cadastrarMesa() {
+		
+		Mesa mesa = new Mesa();
+		
+		mesa.setCodigo(JOptionPane.showInputDialog("Digite o código da mesa:"));
+		mesa.setNome(JOptionPane.showInputDialog("Digite o nome da mesa:"));
+		mesa.setNumero(Integer.parseInt(JOptionPane.showInputDialog("Digite o código da mesa:")));
+		mesa.setStatusMesa(StatusMesa.DISPONIVEL);
+		return mesa;
+	}
 
+	public static Comanda cadastrarComanda() {
+		Comanda comanda = new Comanda();
+		
+		comanda.setCodigo(JOptionPane.showInputDialog("Digite o código da comanda:"));
+		comanda.setObservacoes(JOptionPane.showInputDialog("Digite as Observações:"));
+		comanda.setStatus(StatusComanda.EM_ABERTO);
+		return comanda;
+	}
+	
+	
 }
