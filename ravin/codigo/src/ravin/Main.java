@@ -202,7 +202,7 @@ public class Main {
 		builder.append("4- Consultar \n");
 		builder.append("5- Listar Todos \n");
 		builder.append("6- Voltar \n");
-		return builder.toString(); 
+		return builder.toString();
 	} 
 	
 	public static String montarSubMenuFuncionarios() {
