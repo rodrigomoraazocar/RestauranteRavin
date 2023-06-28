@@ -26,10 +26,43 @@ import ravin.utilidade.DateUtils;
 public class Main {
 
 	public static void main(String[] args) {
-
-		Pessoa pessoa = cadastrarPessoa();
-		Funcionario funcionario = cadastrarFuncionario();
-		Cliente cliente = cadastrarCliente();
+		
+		boolean executando = true;
+		int opcaoSelecionada=0;
+		
+		for(;executando;) {
+		opcaoSelecionada= Integer.parseInt(JOptionPane.showInputDialog(montarMenuPrincipal()));
+		
+		switch (opcaoSelecionada) {
+		
+		
+		case 1: 
+			JOptionPane.showInputDialog(montarSubMenuGeral("Funcionarios"));
+			break;
+		case 2: 
+			break;
+		case 3: 
+			break;
+		case 4: 
+			break;
+		case 5: 
+			break;
+		case 6: 
+			break;
+		case 7:
+			executando=false;
+			break;
+			
+			default: 
+				JOptionPane.showMessageDialog(null, "Escolha uma opção inválida");
+				break;
+		}
+		
+		
+		}
+		//Pessoa pessoa = cadastrarPessoa();
+		//Funcionario funcionario = cadastrarFuncionario();
+		//Cliente cliente = cadastrarCliente();
 
 	}
 
@@ -142,5 +175,43 @@ public class Main {
 		return comanda;
 	}
 	
+	public static String montarMenuPrincipal() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("===============RAVIN=============");
+		builder.append("\n");
+		builder.append("\n 1-Funcionario");
+		builder.append("\n 2- Cliente");
+		builder.append("\n 3- Produto");
+		builder.append("\n 4- Cardapio");
+		builder.append("\n 5- Mesa");
+		builder.append("\n 6- Pedido");
+		builder.append("\n 7- Sair");
+	   return builder.toString();
+	
+	}
+	
+	public static String montarSubMenuGeral(String modulo) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("===========Gestão de ");
+		builder.append(modulo);
+		builder.append("=============");
+		builder.append("\n");
+		builder.append("1- Cadastrar \n");
+		builder.append("2- Alterar \n");
+		builder.append("3- Cadastrar \n");
+		builder.append("4- Consultar \n");
+		builder.append("5- Listar Todos \n");
+		builder.append("6- Voltar \n");
+		return builder.toString();
+	} 
+	
+	public static String montarSubMenuFuncionarios() {
+		String subMenuGeral= montarSubMenuGeral("Funcionarios");
+		StringBuilder builder = new StringBuilder();
+		builder.append(subMenuGeral);
+		builder.append("6- Consultar Garçons Disponiveis");
+		builder.append("7- Voltar");
+		return builder.toString();
+	}
 	
 }
